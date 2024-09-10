@@ -1,0 +1,24 @@
+<table class="table">
+  <thead class="table-header">
+    <tr>
+      {{#each @headers as |header|}}
+        <th scope="col" class="header-cell">
+          {{header.name}}
+        </th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @rows as |row|}}
+      <tr class="table-row">
+        {{#each row.property_values as |cell|}}
+          <td class="cell">
+            {{cell.value}}
+          </td>
+        {{/each}}
+      </tr>
+    {{else}}
+      <tr>No results found</tr>
+    {{/each}}
+  </tbody>
+</table>
