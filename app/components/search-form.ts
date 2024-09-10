@@ -60,7 +60,7 @@ export default class SearchForm extends Component<SearchFormSignature> {
   }
 
   @action
-  handleCategoryChange(event: ChangeEvent<HTMLElement> }) {
+  handleCategoryChange(event) {
     const value = event.target.value;
 
     const categorySelected = this.args.categories.filter((category) => {
