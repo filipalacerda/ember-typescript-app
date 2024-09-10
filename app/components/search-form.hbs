@@ -59,13 +59,14 @@
 
         {{#if this.isCheckbox}}
           <div class="checkboxes">
-            {{#each @values as |value|}}
+            {{#each this.currentCategoryProperty.values as |value|}}
+              <label for={{value}}>{{value}}</label>
               <Input
-                id="admin-checkbox"
                 @type="checkbox"
                 {{on "change" this.onCheckboxChange}}
                 @value={{value}}
                 name={{value}}
+                id={{value}}
               />
             {{/each}}
           </div>
@@ -78,7 +79,7 @@
             class="input"
           >
             <option>Choose Value</option>
-            {{#each @values as |value|}}
+            {{#each this.currentCategoryProperty.values as |value|}}
               <option value={{value}}>
                 {{value}}
               </option>
