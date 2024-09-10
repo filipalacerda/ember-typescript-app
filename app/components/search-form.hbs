@@ -1,1 +1,69 @@
-{{yield}}
+<form class="search-form">
+  <div class="fields-container">
+    <fieldset class="fieldset">
+      <label for="category" class="label">Category:</label>
+      <select
+        aria-required="true"
+        required="true"
+        name="category"
+        id="category"
+        class="input"
+        {{on "change" this.handleCategoryChange}}
+      >
+        <option value="-1">Choose Category</option>
+        {{#each @categories as |category|}}
+          <option
+            value={{category.id}}
+            class="bg-white"
+          >{{category.name}}</option>
+        {{/each}}
+      </select>
+    </fieldset>
+
+    {{#if this.visibleOperators}}
+      <fieldset class="fieldset">
+        <label for="operator" class="label">
+          Operator:
+        </label>
+        <select
+          aria-required="true"
+          required="true"
+          name="operator"
+          id="operator"
+          class="input"
+          {{on "change" this.handleOperatorChange}}
+        >
+          <option value="empty">Choose Operator</option>
+          {{#each this.visibleOperators as |operator|}}
+            <option value={{operator.id}}>
+              {{operator.text}}
+            </option>
+          {{/each}}
+        </select>
+      </fieldset>
+    {{/if}}
+
+    {{#if this.isDynamicInputVisible}}
+      <fieldset class="fieldset">
+        <label for="value" class="label">
+          Value:
+        </label>
+        <DynamicInput
+          @operator={{@currentOperator?.id}}
+          @type={{@currentCategoryProperty.type}}
+          @values={{@currentCategoryProperty.values}}
+          @handleChange={{this.handleValueChange}}
+        />
+      </fieldset>
+    {{/if}}
+  </div>
+  <div>
+    <button
+      type="button"
+      class="clear-button"
+      {{on "click" this.handleOnClear}}
+    >
+      Clear
+    </button>
+  </div>
+</form>

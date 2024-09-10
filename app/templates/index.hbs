@@ -1,1 +1,8 @@
+<SearchForm
+  @categories={{@model.properties}}
+  @operators={{@model.operators}}
+  {{!-- @onChange={{this.onChange}}
+  @onClear={{this.onClear}} --}}
+/>
+
 <Table @headers={{@model.properties}} @rows={{@model.products}} />

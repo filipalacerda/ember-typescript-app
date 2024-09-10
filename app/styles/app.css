@@ -1,1 +1,134 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+fieldset {
+  border: none;
+}
+
+button {
+  border: none;
+}
+
+.app {
+  display: flex;
+  padding: 6rem;
+  min-height: 100vh;
+  gap: 2.5rem;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+  .search-container {
+    flex-direction: column;
+  }
+
+  .table-container {
+    overflow: scroll;
+  }
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #0c4a6e;
+  border-radius: 3px;
+  gap: 1rem;
+  padding: 2.5rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .search-form,
+  .fields-container {
+    flex-direction: column;
+    width: auto;
+  }
+}
+
+.fields-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.fieldset {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.label {
+  font-weight: 300;
+}
+
+.input {
+  border: 1px solid #9ca3af;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 3px;
+
+  &:focus {
+    border: 1px solid #3b82f6;
+  }
+}
+
+.clear-button {
+  color: white;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding: 0.5rem 1rem;
+  background-color: #1d4ed8;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: #1e3a8a;
+  }
+}
+
+.checkboxes {
+  display: flex;
+  gap: 10px;
+  font-weight: 300;
+}
+
+.table {
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-align: left;
+  min-width: 100%;
+  text-indent: 0;
+  border-collapse: collapse;
+}
+
+.table-header {
+  font-weight: 500;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header-cell {
+  padding: 1rem 1.5rem;
+}
+
+.table-row {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cell {
+  white-space: nowrap;
+  padding: 1rem 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+}
