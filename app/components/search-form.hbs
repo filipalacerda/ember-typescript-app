@@ -48,12 +48,43 @@
         <label for="value" class="label">
           Value:
         </label>
-        <DynamicInput
-          @operator={{@currentOperator?.id}}
-          @type={{@currentCategoryProperty.type}}
-          @values={{@currentCategoryProperty.values}}
-          @handleChange={{this.handleValueChange}}
-        />
+        {{#if this.isTextInput}}
+          <Input
+            aria-labelledby=""
+            @type="text"
+            {{on "change" this.handleValueChange}}
+            class="input"
+          />
+        {{/if}}
+
+        {{#if this.isCheckbox}}
+          <div class="checkboxes">
+            {{#each @values as |value|}}
+              <Input
+                id="admin-checkbox"
+                @type="checkbox"
+                {{on "change" this.onCheckboxChange}}
+                @value={{value}}
+                name={{value}}
+              />
+            {{/each}}
+          </div>
+        {{/if}}
+
+        {{#if this.isSelect}}
+          <select
+            aria-labelledby=""
+            {{on "change" this.handleValueChange}}
+            class="input"
+          >
+            <option>Choose Value</option>
+            {{#each @values as |value|}}
+              <option value={{value}}>
+                {{value}}
+              </option>
+            {{/each}}
+          </select>
+        {{/if}}
       </fieldset>
     {{/if}}
   </div>

@@ -25,6 +25,8 @@ export default class SearchForm extends Component<SearchFormSignature> {
   @tracked currentCategoryProperty: Property | undefined;
   @tracked currentValue: string = '';
 
+  @tracked checkboxValue: string = '';
+
   filterOperators = (
     operators: Operator[],
     currentCategoryProperty?: PropertyType,
@@ -38,7 +40,7 @@ export default class SearchForm extends Component<SearchFormSignature> {
     let result: [] | Operator[];
     const availableOperators =
       currentCategoryProperty &&
-      categoryOperatorsMap[currentCategoryProperty?.type as PropertyType];
+      categoryOperatorsMap[currentCategoryProperty?.type];
 
     if (availableOperators) {
       result = operators.reduce((acc: Operator[], value: Operator) => {
@@ -68,6 +70,42 @@ export default class SearchForm extends Component<SearchFormSignature> {
       this.currentOperator?.id !== 'none' &&
       this.currentOperator?.id !== 'any'
     );
+  }
+
+  get isTextInput() {
+    console.log('here', this.args.type);
+    return (
+      this.currentCategoryProperty?.type === 'string' ||
+      this.currentCategoryProperty?.type === 'number'
+    );
+  }
+
+  get isCheckbox() {
+    return (
+      this.currentCategoryProperty?.type === 'enumerated' &&
+      this.currentOperator?.id === 'in'
+    );
+  }
+
+  get isSelect() {
+    return (
+      this.currentCategoryProperty?.type === 'enumerated' &&
+      this.currentOperator?.id !== 'in'
+    );
+  }
+
+  @action
+  onCheckboxChange(event) {
+    let newValue;
+
+    if (this.checkboxValue.length) {
+      newValue = this.checkboxValue.concat(',', event.target.value);
+    } else {
+      newValue = event.target.value;
+    }
+
+    this.checkboxValue = newValue;
+    this.handleValueChange(newValue);
   }
 
   @action
