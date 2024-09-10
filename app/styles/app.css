@@ -15,10 +15,11 @@ button {
   flex-direction: column;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .app {
     padding: 1rem;
   }
+
   .search-container {
     flex-direction: column;
   }
@@ -47,7 +48,7 @@ button {
   padding: 2.5rem 1rem;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .search-form,
   .fields-container {
     flex-direction: column;
