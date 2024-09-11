@@ -42,7 +42,6 @@ export default class IndexController extends Controller {
     } else {
       switch (filters?.operator?.id) {
         case 'equals':
-          console.log('equalFilter(products, filters)', products, filters);
           return equalFilter(products, filters);
         case 'greater_than':
           return greaterThanFilter(products, filters);

@@ -1,8 +1,10 @@
-<SearchForm
-  @categories={{@model.properties}}
-  @operators={{@model.operators}}
-  @onChange={{this.onChange}}
-  @onClear={{this.onClear}}
-/>
+<div class="app">
+  <SearchForm
+    @categories={{@model.properties}}
+    @operators={{@model.operators}}
+    @onChange={{this.onChange}}
+    @onClear={{this.onClear}}
+  />
 
-<Table @headers={{@model.properties}} @rows={{this.visibleProducts}} />
+  <Table @headers={{@model.properties}} @rows={{this.visibleProducts}} />
+</div>
