@@ -1,4 +1,4 @@
-import { Filters, Product, Products } from '../types/types';
+import type { Filters, Product, Products } from './types';
 
 /**
  * The value the user inputs could be all in uppercase.

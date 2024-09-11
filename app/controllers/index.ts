@@ -1,13 +1,6 @@
 import Controller from '@ember/controller';
-import { computed, set } from '@ember/object';
-import type {
-  Filters,
-  Operator,
-  Products,
-  Property,
-} from 'ember-typescript-app/types';
+import type { Filters, Products } from 'ember-typescript-app/types';
 import { action } from '@ember/object';
-
 import {
   equalFilter,
   greaterThanFilter,
@@ -17,21 +10,21 @@ import {
   inFilter,
   containsFilter,
 } from 'ember-typescript-app/filters';
+import { tracked } from '@glimmer/tracking';
 
 export default class IndexController extends Controller {
-  filters: Filters | undefined;
+  @tracked filters: Filters | undefined;
 
   @action
-  onChange(values) {
-    set(this, 'filters', values);
+  onChange(values: Filters) {
+    this.filters = values;
   }
 
   @action
   onClear() {
-    set(this, 'filters', {});
+    this.filters = {};
   }
 
-  @computed('filters', 'model.products')
   get visibleProducts() {
     return this.filterProducts(this.model.products, this.filters);
   }

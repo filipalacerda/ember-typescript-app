@@ -12,10 +12,9 @@
       >
         <option value="-1">Choose Category</option>
         {{#each @categories as |category|}}
-          <option
-            value={{category.id}}
-            class="bg-white"
-          >{{category.name}}</option>
+          <option value={{category.id}} class="bg-white">{{this.capitalizeName
+              category.name
+            }}</option>
         {{/each}}
       </select>
     </fieldset>
