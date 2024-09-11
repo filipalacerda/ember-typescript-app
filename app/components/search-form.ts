@@ -157,6 +157,11 @@ export default class SearchForm extends Component<SearchFormSignature> {
   }
 
   @action
+  handleInputValueChange(event) {
+    this.handleValueChange(event.target.value);
+  }
+
+  @action
   handleOnClear() {
     this.currentCategoryProperty = { id: -1, name: '', type: undefined };
     this.currentOperator = { id: 'empty', text: '' };

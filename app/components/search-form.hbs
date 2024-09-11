@@ -52,7 +52,7 @@
           <Input
             aria-labelledby=""
             @type="text"
-            {{on "change" this.handleValueChange}}
+            {{on "input" this.handleInputValueChange}}
             class="input"
           />
         {{/if}}
@@ -75,7 +75,7 @@
         {{#if this.isSelect}}
           <select
             aria-labelledby=""
-            {{on "change" this.handleValueChange}}
+            {{on "change" this.handleInputValueChange}}
             class="input"
           >
             <option>Choose Value</option>

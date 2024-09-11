@@ -47,17 +47,23 @@ export default class Wrapper extends Component<WrapperSignature> {
   }
 
   get visibleProducts() {
-    console.log(this.args, 'visibleProducts');
+    console.log('filters', this.filters);
+    console.log(
+      'visibleProducts',
+      this.filterProducts(this.args.products, this.filters),
+    );
+
     return this.filterProducts(this.args.products, this.filters);
   }
 
   filterProducts(products: Products, filters?: Filters) {
-    console.log('products', products);
     if (!filters || (filters && !Object.keys(filters).length)) {
       return products;
     } else {
       switch (filters?.operator?.id) {
         case 'equals':
+          console.log('here');
+
           return equalFilter(products, filters);
         case 'greater_than':
           return greaterThanFilter(products, filters);
@@ -75,7 +81,5 @@ export default class Wrapper extends Component<WrapperSignature> {
           return products;
       }
     }
-
-    return products;
   }
 }
