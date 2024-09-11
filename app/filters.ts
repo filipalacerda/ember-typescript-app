@@ -93,7 +93,7 @@ const greaterThanFilter = (products: Products, filters: Filters) => {
   if (!filterValue) {
     return products;
   } else {
-    return products.reduce((acc, product) => {
+    return products.reduce((acc: Products[], product: Product) => {
       product.property_values.forEach((value) => {
         const valueProperty = value.value as number;
         if (value.property_id === propertyId) {

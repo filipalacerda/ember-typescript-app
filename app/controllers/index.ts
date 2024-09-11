@@ -1,12 +1,12 @@
-import { action } from '@ember/object';
-import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import Controller from '@ember/controller';
+import { computed, set } from '@ember/object';
 import type {
   Filters,
   Operator,
   Products,
   Property,
 } from 'ember-typescript-app/types';
+import { action } from '@ember/object';
 
 import {
   equalFilter,
@@ -18,42 +18,22 @@ import {
   containsFilter,
 } from 'ember-typescript-app/filters';
 
-export interface WrapperSignature {
-  // The arguments accepted by the component
-  Args: {
-    products: Products;
-    operators: Operator[];
-    properties: Property[];
-  };
-  // Any blocks yielded by the component
-  Blocks: {
-    default: [];
-  };
-  // The element to which `...attributes` is applied in the component template
-  Element: null;
-}
-
-export default class Wrapper extends Component<WrapperSignature> {
-  @tracked filters: Filters | undefined;
+export default class IndexController extends Controller {
+  filters: Filters | undefined;
 
   @action
   onChange(values) {
-    this.filters = values;
+    set(this, 'filters', values);
   }
 
   @action
   onClear() {
-    this.filters = {};
+    set(this, 'filters', {});
   }
 
+  @computed('filters', 'model.products')
   get visibleProducts() {
-    console.log('filters', this.filters);
-    console.log(
-      'visibleProducts',
-      this.filterProducts(this.args.products, this.filters),
-    );
-
-    return this.filterProducts(this.args.products, this.filters);
+    return this.filterProducts(this.model.products, this.filters);
   }
 
   filterProducts(products: Products, filters?: Filters) {
@@ -62,8 +42,7 @@ export default class Wrapper extends Component<WrapperSignature> {
     } else {
       switch (filters?.operator?.id) {
         case 'equals':
-          console.log('here');
-
+          console.log('equalFilter(products, filters)', products, filters);
           return equalFilter(products, filters);
         case 'greater_than':
           return greaterThanFilter(products, filters);

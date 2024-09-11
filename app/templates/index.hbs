@@ -1,5 +1,8 @@
-<Wrapper
+<SearchForm
   @categories={{@model.properties}}
   @operators={{@model.operators}}
-  @products={{@model.products}}
+  @onChange={{this.onChange}}
+  @onClear={{this.onClear}}
 />
+
+<Table @headers={{@model.properties}} @rows={{this.visibleProducts}} />

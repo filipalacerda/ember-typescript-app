@@ -73,7 +73,6 @@ export default class SearchForm extends Component<SearchFormSignature> {
   }
 
   get isTextInput() {
-    console.log('here', this.args.type);
     return (
       this.currentCategoryProperty?.type === 'string' ||
       this.currentCategoryProperty?.type === 'number'
