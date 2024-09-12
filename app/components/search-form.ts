@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-import type { Property, Operator, Filters, PropertyType } from '../types';
+import type { Property, Operator, Filters, PropertyType } from '../types/types';
 
 export interface SearchFormSignature {
   // The arguments accepted by the component
@@ -92,9 +92,6 @@ export default class SearchForm extends Component<SearchFormSignature> {
       this.currentOperator?.id !== 'in'
     );
   }
-
-  capitalizeName = (name: string) =>
-    name.charAt(0).toUpperCase() + name.slice(1);
 
   @action
   onCheckboxChange(event) {

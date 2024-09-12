@@ -3,7 +3,7 @@
     <tr>
       {{#each @headers as |header|}}
         <th scope="col" class="header-cell">
-          {{header.name}}
+          {{capitalizeName header.name}}
         </th>
       {{/each}}
     </tr>

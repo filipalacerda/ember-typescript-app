@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import type { Property, Product } from '../types';
+import type { Property, Product } from '../types/types';
 
 export type PropertyType = 'string' | 'number' | 'enumerated' | undefined;
 

@@ -1,0 +1,43 @@
+<fieldset class="fieldset">
+  <label for="value" class="label">
+    Value:
+  </label>
+  {{#if this.isTextInput}}
+    <Input
+      aria-labelledby=""
+      @type="text"
+      {{on "input" this.handleInputValueChange}}
+      class="input"
+    />
+  {{/if}}
+
+  {{#if this.isCheckbox}}
+    <div class="checkboxes">
+      {{#each @values as |value|}}
+        <label for={{value}}>{{value}}</label>
+        <Input
+          @type="checkbox"
+          {{on "change" this.onCheckboxChange}}
+          @value={{value}}
+          name={{value}}
+          id={{value}}
+        />
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if this.isSelect}}
+    <select
+      aria-labelledby=""
+      {{on "change" this.handleInputValueChange}}
+      class="input"
+    >
+      <option>Choose Value</option>
+      {{#each @values as |value|}}
+        <option value={{value}}>
+          {{value}}
+        </option>
+      {{/each}}
+    </select>
+  {{/if}}
+</fieldset>

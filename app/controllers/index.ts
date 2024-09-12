@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import type { Filters, Products } from 'ember-typescript-app/types';
+import type { Filters, Products } from 'ember-typescript-app/types/types';
 import { action } from '@ember/object';
 import {
   equalFilter,

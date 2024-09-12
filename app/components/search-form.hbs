@@ -12,7 +12,7 @@
       >
         <option value="-1">Choose Category</option>
         {{#each @categories as |category|}}
-          <option value={{category.id}} class="bg-white">{{this.capitalizeName
+          <option value={{category.id}} class="bg-white">{{capitalizeName
               category.name
             }}</option>
         {{/each}}
@@ -43,49 +43,12 @@
     {{/if}}
 
     {{#if this.isDynamicInputVisible}}
-      <fieldset class="fieldset">
-        <label for="value" class="label">
-          Value:
-        </label>
-        {{#if this.isTextInput}}
-          <Input
-            aria-labelledby=""
-            @type="text"
-            {{on "input" this.handleInputValueChange}}
-            class="input"
-          />
-        {{/if}}
-
-        {{#if this.isCheckbox}}
-          <div class="checkboxes">
-            {{#each this.currentCategoryProperty.values as |value|}}
-              <label for={{value}}>{{value}}</label>
-              <Input
-                @type="checkbox"
-                {{on "change" this.onCheckboxChange}}
-                @value={{value}}
-                name={{value}}
-                id={{value}}
-              />
-            {{/each}}
-          </div>
-        {{/if}}
-
-        {{#if this.isSelect}}
-          <select
-            aria-labelledby=""
-            {{on "change" this.handleInputValueChange}}
-            class="input"
-          >
-            <option>Choose Value</option>
-            {{#each this.currentCategoryProperty.values as |value|}}
-              <option value={{value}}>
-                {{value}}
-              </option>
-            {{/each}}
-          </select>
-        {{/if}}
-      </fieldset>
+      <DynamicInput
+        @type={{this.currentCategoryProperty.type}}
+        @values={{this.currentCategoryProperty.values}}
+        @handleChange={{this.handleValueChange}}
+        @opertator={{this.currentOperator.id}}
+      />
     {{/if}}
   </div>
   <div>
