@@ -9,9 +9,8 @@
       {{on "input" this.handleInputValueChange}}
       class="input"
     />
-  {{/if}}
 
-  {{#if this.isCheckbox}}
+  {{else if this.isCheckbox}}
     <div class="checkboxes">
       {{#each @values as |value|}}
         <label for={{value}}>{{value}}</label>
@@ -24,9 +23,7 @@
         />
       {{/each}}
     </div>
-  {{/if}}
-
-  {{#if this.isSelect}}
+  {{else if this.isSelect}}
     <select
       aria-labelledby=""
       {{on "change" this.handleInputValueChange}}
