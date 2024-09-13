@@ -21,6 +21,7 @@
           @value={{value}}
           name={{value}}
           id={{value}}
+          data-test-checkbox-input
         />
       {{/each}}
     </div>
@@ -33,7 +34,7 @@
     >
       <option>Choose Value</option>
       {{#each @values as |value|}}
-        <option value={{value}}>
+        <option value={{value}} data-test-option>
           {{value}}
         </option>
       {{/each}}

@@ -26,7 +26,6 @@ export default class DynamicInput extends Component<DynamicInputSignature> {
   }
 
   get isCheckbox() {
-    console.log(this.args.operator);
     return this.args.type === 'enumerated' && this.args.operator === 'in';
   }
 
