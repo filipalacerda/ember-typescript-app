@@ -31,7 +31,7 @@ module('Integration | Component | dynamic-input', function (hooks) {
   test('it should call handleChange when the user types a value', async function (assert) {
     let actual;
     this.set('type', 'string');
-    this.set('handleChange', (data) => {
+    this.set('handleChange', (data: string) => {
       actual = data;
     });
 
@@ -51,14 +51,10 @@ module('Integration | Component | dynamic-input', function (hooks) {
 
   module('with type enumerated and operator in', function () {
     test('it should render checkboxes', async function (assert) {
-      let actual;
-
       this.set('type', 'enumerated');
       this.set('operator', 'in');
       this.set('values', ['text', 'foo', 'bar']);
-      this.set('handleChange', (data) => {
-        actual = data;
-      });
+      this.set('handleChange', () => {});
       await render(
         hbs`<DynamicInput @handleChange={{this.handleChange}} @type={{this.type}} @operator={{this.operator}} @values={{this.values}}/>`,
       );
@@ -73,7 +69,7 @@ module('Integration | Component | dynamic-input', function (hooks) {
       this.set('type', 'enumerated');
       this.set('operator', 'in');
       this.set('values', ['text', 'foo', 'bar']);
-      this.set('handleChange', (data) => {
+      this.set('handleChange', (data: string) => {
         actual = data;
       });
 
@@ -110,7 +106,7 @@ module('Integration | Component | dynamic-input', function (hooks) {
       this.set('type', 'enumerated');
       this.set('operator', 'equals');
       this.set('values', ['text', 'foo', 'bar']);
-      this.set('handleChange', (data) => {
+      this.set('handleChange', (data: string) => {
         actual = data;
       });
 
