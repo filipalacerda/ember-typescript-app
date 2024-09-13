@@ -110,6 +110,7 @@ export default class SearchForm extends Component<SearchFormSignature> {
   @action
   handleCategoryChange(event) {
     const value = event.target.value;
+    console.log('categorySelected', value, this.args.categories);
 
     const categorySelected = this.args.categories.filter((category) => {
       return category.id === parseInt(value);

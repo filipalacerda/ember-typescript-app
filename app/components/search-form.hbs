@@ -8,6 +8,7 @@
         name="category"
         id="category"
         class="input"
+        data-test-category-select
         {{on "change" this.handleCategoryChange}}
       >
         <option value="-1">Choose Category</option>
@@ -19,6 +20,7 @@
               category.id
               this.currentCategoryProperty.id
             }}
+            data-test-category-option
           >{{capitalizeName category.name}}</option>
         {{/each}}
       </select>
@@ -35,6 +37,7 @@
           name="operator"
           id="operator"
           class="input"
+          data-test-operator-select
           {{on "change" this.handleOperatorChange}}
         >
           <option value="empty">Choose Operator</option>
@@ -60,6 +63,7 @@
     <button
       type="button"
       class="clear-button"
+      data-test-clear-button
       {{on "click" this.handleOnClear}}
     >
       Clear
