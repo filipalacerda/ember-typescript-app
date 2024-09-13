@@ -1,5 +1,5 @@
 <table class="table">
-  <thead class="table-header">
+  <thead class="table-header" data-test-header>
     <tr>
       {{#each @headers as |header|}}
         <th scope="col" class="header-cell">
@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     {{#each @rows as |row|}}
-      <tr class="table-row">
+      <tr class="table-row" data-test-row>
         {{#each row.property_values as |cell|}}
           <td class="cell">
             {{cell.value}}
@@ -18,7 +18,7 @@
         {{/each}}
       </tr>
     {{else}}
-      <tr>No results found</tr>
+      <tr data-test-empty-row>No results found</tr>
     {{/each}}
   </tbody>
 </table>

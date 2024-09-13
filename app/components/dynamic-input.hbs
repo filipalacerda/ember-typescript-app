@@ -8,10 +8,11 @@
       @type="text"
       {{on "input" this.handleInputValueChange}}
       class="input"
+      data-test-text-input
     />
 
   {{else if this.isCheckbox}}
-    <div class="checkboxes">
+    <div class="checkboxes" data-test-checkboxes>
       {{#each @values as |value|}}
         <label for={{value}}>{{value}}</label>
         <Input
@@ -28,6 +29,7 @@
       aria-labelledby=""
       {{on "change" this.handleInputValueChange}}
       class="input"
+      data-test-select-input
     >
       <option>Choose Value</option>
       {{#each @values as |value|}}

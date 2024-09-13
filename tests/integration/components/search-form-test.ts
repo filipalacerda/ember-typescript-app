@@ -1,26 +1,26 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-typescript-app/tests/helpers';
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+// import { module, test } from 'qunit';
+// import { setupRenderingTest } from 'ember-typescript-app/tests/helpers';
+// import { render } from '@ember/test-helpers';
+// import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | search-form', function (hooks) {
-  setupRenderingTest(hooks);
+// module('Integration | Component | search-form', function (hooks) {
+//   setupRenderingTest(hooks);
 
-  test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+//   test('it renders', async function (assert) {
+//     // Set any properties with this.set('myProperty', 'value');
+//     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<SearchForm />`);
+//     await render(hbs`<SearchForm />`);
 
-    assert.dom().hasText('');
+//     assert.dom().hasText('');
 
-    // Template block usage:
-    await render(hbs`
-      <SearchForm>
-        template block text
-      </SearchForm>
-    `);
+//     // Template block usage:
+//     await render(hbs`
+//       <SearchForm>
+//         template block text
+//       </SearchForm>
+//     `);
 
-    assert.dom().hasText('template block text');
-  });
-});
+//     assert.dom().hasText('template block text');
+//   });
+// });

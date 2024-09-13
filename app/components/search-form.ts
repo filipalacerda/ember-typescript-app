@@ -134,7 +134,7 @@ export default class SearchForm extends Component<SearchFormSignature> {
     })[0];
 
     this.currentOperator = operatorSelected;
-    console.log('this.currentOperator', this.currentOperator.id);
+
     this.args.onChange &&
       this.args.onChange({
         property: this.currentCategoryProperty,
