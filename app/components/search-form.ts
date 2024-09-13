@@ -162,12 +162,8 @@ export default class SearchForm extends Component<SearchFormSignature> {
 
   @action
   handleOnClear() {
-    this.currentCategoryProperty = {
-      id: -1,
-      name: 'Choose Category',
-      type: undefined,
-    };
-    this.currentOperator = { id: 'empty', text: '' };
+    this.currentCategoryProperty = undefined;
+    this.currentOperator = undefined;
     this.currentValue = '';
 
     this.args.onClear();
