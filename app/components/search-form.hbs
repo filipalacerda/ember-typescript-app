@@ -15,7 +15,10 @@
           <option
             value={{category.id}}
             class="bg-white"
-            selected={{eq category.id this.currentCategoryProperty.id}}
+            selected={{this.isEqual
+              category.id
+              this.currentCategoryProperty.id
+            }}
           >{{capitalizeName category.name}}</option>
         {{/each}}
       </select>
